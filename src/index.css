@@ -53,3 +53,47 @@ code {
   display: grid;
   grid-template-columns: 3fr 1fr;
 }
+.footer{
+  position:fixed;
+  bottom:0;
+  border-radius:0;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+.hover-image-container {
+  position: relative;
+  }
+  
+  .hover-image-text {
+  position: absolute;
+  height: 100%;
+
+bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s ease;
+  }
+  
+  .hover-image-container:hover .hover-image-text {
+  visibility: visible;
+  opacity: 1;
+  }
+  .heading{
+ margin-top:80px;
+    font-size: 30px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  .short-heading{
+    font-size: 15px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  p.heading,.short-heading{
+    text-align: center;
+  }

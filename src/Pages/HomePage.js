@@ -3,21 +3,23 @@ import { Button } from "@nextui-org/react";
 function HomePage() {
   return (
     <>
-      <div class="container-fluid w-100 h-auto m-0 p-0">
+      <div class="w-64 h-64 hover-image-container">
         <img
-          src="airplane_2.jpg
-        "
-          class="img-fluid w-100 h-auto p-0 m-0"
-          alt="..."
+          class="w-full h-full object-cover"
+          src="airplane_2.jpg"
+          alt="Image"
         ></img>
-
-        <div class="centered">
-          <h1>
-            Welcome to Airoshield,<br></br>
-          </h1>
-          the cutting-edge Airline Management system that takes your flying
-          experience to new heights Click to Start your journey..
-          <Button size="md">Button</Button>
+        <div class="centered hover-image-text">
+          <p className="heading">
+            <b>
+              Welcome to Aeroshield,the cutting-edge Airline Management system
+              that takes your flight experience to new heights.
+              <p className="short-heading">Click to start your journey</p>{" "}
+              <Button variant="bordered" color="warning">
+                Explore
+              </Button>
+            </b>
+          </p>
         </div>
       </div>
     </>
