@@ -7,8 +7,8 @@ import {
   Link,
   Button,
 } from "@nextui-org/react";
-import { Logo } from "../logo";
-function Navbar() {
+import { Logo } from "./logo.jsx";
+function Nav() {
   return (
     <Navbar shouldHideOnScroll>
       <NavbarBrand>
@@ -40,4 +40,4 @@ function Navbar() {
     </Navbar>
   );
 }
-export default Navbar;
+export default Nav;

@@ -4,7 +4,7 @@ import { Button } from "@nextui-org/react";
 import TableList from "../Components/TableList";
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure, Checkbox, Input, Link} from "@nextui-org/react";
 import ModalComponent from "../Components/ModalComponent";
-
+import Nav from "../Components/Nav"
 
 export default function Airline() {
   const [selectedRow, setSelectedRow] = useState(null);
