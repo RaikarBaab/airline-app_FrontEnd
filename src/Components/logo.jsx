@@ -1,6 +1,11 @@
 import React from "react";
-export const Logo = () => (
-  <img border-radius="50%"
-  src="logo.png" height="40px"  width="30px" alt="..">
-  </img>
-);
+function Logo(){
+  return(
+    <img border-radius="50%"
+    src="logo.png" height="40px"  width="30px" alt=".." style={{width:30,height:40,objectFit:'contain'}}>
+    </img>
+
+  );
+
+  }
+export default Logo;

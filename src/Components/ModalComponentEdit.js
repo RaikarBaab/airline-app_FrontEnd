@@ -6,29 +6,34 @@ import {
   ModalBody,
   ModalFooter,
   Input,
-  Button,
 } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 
-export default function ModalComponent({ isOpen, onClose, onSignIn, addData }) {
+export default function ModalComponentEdit({
+  isOpen,
+  onClose,
+  onSignIn,
+  editData,
+}) {
   return (
     <Modal
       isOpen={isOpen}
       onOpenChange={onClose}
       placement="auto"
-      scrollBehavior="inside"
       size="lg"
+      scrollBehavior="inside"
       className="modal"
     >
       <ModalContent>
         <ModalHeader className="flex flex-col gap-1 align-center">
-          Add Airline Details
+          Edit Airline Details
         </ModalHeader>
         <ModalBody>
-          {/* <Input autoFocus label="Code" placeholder="Enter Code" type="number" variant="bordered" /> */}
-          {addData.map((data) => {
+          {editData.map((data) => {
             return (
               <Input
                 label={data.label}
+                defaultValue={data.defaultValue}
                 placeholder={data.placeholder}
                 type={data.type}
                 variant="bordered"
