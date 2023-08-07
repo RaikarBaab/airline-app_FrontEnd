@@ -14,6 +14,7 @@ export default function ModalComponentEdit({
   onClose,
   onSignIn,
   editData,
+  title,
 }) {
   return (
     <Modal
@@ -26,7 +27,7 @@ export default function ModalComponentEdit({
     >
       <ModalContent>
         <ModalHeader className="flex flex-col gap-1 align-center">
-          Edit Airline Details
+          Edit {title} Details
         </ModalHeader>
         <ModalBody>
           {editData.map((data) => {

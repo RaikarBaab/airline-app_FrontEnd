@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@nextui-org/react";
 import TableList from "../Components/TableList";
 import { useDisclosure } from "@nextui-org/react";
+import { useNavigate } from "react-router-dom";
 import ModalComponent from "../Components/ModalComponent";
 import ModalComponentEdit from "../Components/ModalComponentEdit";
 
@@ -13,7 +14,32 @@ export default function Airline() {
     setSelectedRow(rowKey);
   };
 
+  const columns = [
+    {
+      key: "name",
+      label: "Name",
+    },
+    {
+      key: "email",
+      label: "Email",
+    },
+    {
+      key: "state",
+      label: "State",
+    },
+    {
+      key: "total flights",
+      label: "Total No. of Flights",
+    },
+    {
+      key: "flights to depart",
+      label: "No. of Flights to Depart Today",
+    },
+  ];
+
   let isAdd = true;
+  const title = "Airline";
+  const btn = "View Airports";
 
   const handleAdd = () => {
     console.log("Add button clicked");
@@ -31,6 +57,15 @@ export default function Airline() {
   const handleSignIn = () => {
     console.log();
     onClose();
+  };
+  // const titleBtn = {
+  //   title: "Airline",
+  //   btn: "View Airports",
+  // };
+
+  const navigate = useNavigate();
+  const handleDetails = () => {
+    navigate(`/details?title=${title}&btn=${btn}`);
   };
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -155,7 +190,11 @@ export default function Airline() {
 
   return (
     <>
-      <TableList selectedRow={selectedRow} onRowSelect={handleRowSelection} />
+      <TableList
+        columns={columns}
+        selectedRow={selectedRow}
+        onRowSelect={handleRowSelection}
+      />
       <div className="button-div">
         <Button
           onPress={onOpen}
@@ -181,25 +220,26 @@ export default function Airline() {
         >
           Edit
         </Button>
-        <a href="/details">
-          <Button
-            className="button"
-            color="primary"
-            onClick={handleEdit}
-            isDisabled={!selectedRow}
-          >
-            More Details
-          </Button>
-        </a>
+        <Button
+          className="button"
+          color="primary"
+          onClick={handleDetails}
+          isDisabled={!selectedRow}
+        >
+          More Details
+          {/* <a href="/details">More Details</a> */}
+        </Button>
       </div>
       {/* </div> */}
       <ModalComponent
+        title={title}
         addData={addData}
         isOpen={isOpen}
         onClose={onClose}
         onSignIn={handleSignIn}
       />
       <ModalComponentEdit
+        title={title}
         editData={editData}
         isOpen={isOpen1}
         onClose={() => setIsOpen(false)}

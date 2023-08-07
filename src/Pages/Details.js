@@ -7,8 +7,14 @@ import {
   Divider,
   Button,
 } from "@nextui-org/react";
+import { useLocation } from "react-router-dom";
 
 export default function Details() {
+  const location = useLocation();
+
+  const queryParams = new URLSearchParams(location.search);
+  const title = queryParams.get("title");
+  const btn = queryParams.get("btn");
   return (
     <div
       className="flex-custom"
@@ -26,7 +32,7 @@ export default function Details() {
                 // className="font-semibold"
                 style={{ fontSize: "20px", fontWeight: "bolder" }}
               >
-                Airline Details
+                {title} Details
               </p>
               {/* <p className="text-sm text-gray-500">nextui.org</p> */}
             </div>
@@ -71,7 +77,7 @@ export default function Details() {
           <Divider />
           <CardFooter className="justify-center space-x-4">
             <Button className="button" color="primary">
-              View Airports
+              {btn}
             </Button>
           </CardFooter>
         </Card>

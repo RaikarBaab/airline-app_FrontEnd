@@ -14,6 +14,7 @@ import Footer from "./Components/Footer";
 import LoginPage from "./Pages/LoginPage";
 
 import SignupPage from "./Pages/SignupPage";
+import Airport from "./Pages/Airport.js";
 
 function App() {
   return (
@@ -23,17 +24,16 @@ function App() {
         <Router>
           <div className="flex-custom">
             <Routes>
-              <Route exact path="/" element={<HomePage />} />
+              <Route path="/" element={<HomePage />} />
 
-              <Route exact path="/home" element={<HomePage />} />
+              <Route path="/home" element={<HomePage />} />
 
               <Route path="/airline" element={<Airline />} />
 
               <Route path="/details" element={<Details />} />
-
-              <Route path="/home" element={<HomePage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />
+              <Route path="/airport" element={<Airport />} />
             </Routes>
           </div>
         </Router>

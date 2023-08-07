@@ -59,7 +59,7 @@ export default function TableList(props) {
         //   </div>
         // }
       >
-        <TableHeader>
+        {/* <TableHeader>
           <TableColumn />
           <TableColumn>Name</TableColumn>
           <TableColumn>Email</TableColumn>
@@ -70,7 +70,19 @@ export default function TableList(props) {
           <TableColumn>
             <div className="align-center">No. of Flights to Depart Today</div>
           </TableColumn>
+        </TableHeader> */}
+
+        <TableHeader>
+          <TableColumn />
+          {props.columns.map((column) => {
+            return (
+              <TableColumn key={column.key}>
+                {column.label}
+              </TableColumn>
+            );
+          })}
         </TableHeader>
+
         <TableBody>
           <TableRow
             key="1"

@@ -9,7 +9,13 @@ import {
   Button,
 } from "@nextui-org/react";
 
-export default function ModalComponent({ isOpen, onClose, onSignIn, addData }) {
+export default function ModalComponent({
+  isOpen,
+  onClose,
+  onSignIn,
+  addData,
+  title,
+}) {
   return (
     <Modal
       isOpen={isOpen}
@@ -21,7 +27,7 @@ export default function ModalComponent({ isOpen, onClose, onSignIn, addData }) {
     >
       <ModalContent>
         <ModalHeader className="flex flex-col gap-1 align-center">
-          Add Airline Details
+          Add {title} Details
         </ModalHeader>
         <ModalBody>
           {/* <Input autoFocus label="Code" placeholder="Enter Code" type="number" variant="bordered" /> */}

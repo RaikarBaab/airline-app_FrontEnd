@@ -10,7 +10,7 @@ import {
 import Logo from "../../src/Components/Logos/airline-log.svg";
 function Nav() {
   return (
-    <Navbar shouldHideOnScroll>
+    <Navbar shouldHideOnScroll isBordered>
       <NavbarBrand>
         {/* <Logo /> */}
         <img src={Logo} class="img-fluid" style={{ width: "10%" }} />
