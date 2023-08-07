@@ -13,7 +13,7 @@ function Nav() {
     <Navbar shouldHideOnScroll>
       <NavbarBrand>
         {/* <Logo /> */}
-        <img src={Logo} class="img-fluid" style={{ width: "10%" }} />
+        <img src={Logo} className="img-fluid" style={{ width: "10%" }} />
         <p className="font-bold text-inherit">Aeroshield</p>
       </NavbarBrand>
       <NavbarContent className=" sm:flex gap-4" justify="center">

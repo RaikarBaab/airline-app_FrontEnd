@@ -14,6 +14,7 @@ import Footer from "./Components/Footer";
 import LoginPage from "./Pages/LoginPage";
 
 import SignupPage from "./Pages/SignupPage";
+import FlightSearchPage from "./Pages/FlightSearchPage";
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
               <Route path="/home" element={<HomePage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />
+
+
+              <Route path="/search" element={<FlightSearchPage />} />
             </Routes>
           </div>
         </Router>
