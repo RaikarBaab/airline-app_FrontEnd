@@ -11,21 +11,25 @@ import {
   Tooltip,
   Button,
 } from "@nextui-org/react";
-import { EditIcon } from "./EditIcon";
-// import { columns } from "../TestData/data";
+// import { columns s} from "../TestData/data";
 
 const columns = [
   { name: "Airline", uid: "airline" },
-  { name: "Departure Time", uid: "departureTime" },
-  { name: "Arrival Time", uid: "arrivalTime" },
+  { name: "Departure Date", uid: "departureDate" },
+  { name: "Arrival Date", uid: "arrivalDate" },
   //   { name: "Duration", uid: "duration" },
   { name: "Origin", uid: "origin" },
   { name: "Destination", uid: "destination" },
   { name: "Reservation", uid: "reservations" },
-  { name: "Actions", uid: "actions" },
+  // { name: "Actions", uid: "actions" },
 ];
 
 export default function SearchFlightsTable({ flightData }) {
+  function navigateToFlightReservationpage(flightId) {
+    // TODO navigate to reservations list page with :flightId
+    console.log(flightId);
+  }
+
   const renderCell = React.useCallback((flight, columnKey) => {
     switch (columnKey) {
       case "airline":
@@ -38,100 +42,57 @@ export default function SearchFlightsTable({ flightData }) {
           //     {user.email}
           //   </User>
           <div className="flex flex-col">
-            <p className="text-bold text-sm capitalize">{flight["airline"]}</p>
+            <p className="text-bold text-sm capitalize">{flight["name"]}</p>
           </div>
         );
-      case "departureTime":
-        return (
-          <div className="flex flex-col">
-            <p className="text-bold text-sm capitalize">
-              {flight["departureDate"]}
-            </p>
-            {/* <p className="text-bold text-sm capitalize text-default-400">
-              {user.team}
-            </p> */}
-          </div>
-        );
-      case "arrivalTime":
-        return (
-          <p>{flight["arrivalDate"]}</p>
-          //   <Chip
-          //     className="capitalize"
-          //     color={statusColorMap[user.status]}
-          //     size="sm"
-          //     variant="flat"
-          //   >
-          //     {cellValue}
-          //   </Chip>
-        );
+      case "departureDate":
+        return <p>{flight["departureDate"]}</p>;
+      case "arrivalDate":
+        return <p>{flight["arrivalDate"]}</p>;
       case "duration":
-        return (
-          <p>{flight["arrivalDate"]}</p>
-
-          //   <Chip
-          //     className="capitalize"
-          //     color={statusColorMap[user.status]}
-          //     size="sm"
-          //     variant="flat"
-          //   >
-          //     {cellValue}
-          //   </Chip>
-        );
+        return <p>{flight["arrivalDate"]}</p>;
       case "origin":
-        return (
-          <p>{flight["departsFrom"]}</p>
-
-          //   <Chip
-          //     className="capitalize"
-          //     color={statusColorMap[user.status]}
-          //     size="sm"
-          //     variant="flat"
-          //   >
-          //     {cellValue}
-          //   </Chip>
-        );
+        return <p>{flight["departsFrom"]}</p>;
       case "destination":
-        return (
-          <p>{flight["arrivesAt"]}</p>
-
-          //   <Chip
-          //     className="capitalize"
-          //     color={statusColorMap[user.status]}
-          //     size="sm"
-          //     variant="flat"
-          //   >
-          //     {cellValue}
-          //   </Chip>
-        );
+        return <p>{flight["arrivesAt"]}</p>;
       case "reservations":
         return (
           <Chip
             className="capitalize"
             color={
-              flight["reserved"] == flight["capacity"] ? "danger" : "success"
+              flight["reserved"] === flight["capacity"] ? "danger" : "success"
             }
             size="sm"
             variant="flat"
           >
-            {flight["reserved"]}/{flight["capacity"]}
+            {flight["reservations"].length}/{flight["capacity"]}
           </Chip>
         );
       case "actions":
         return (
           <div className="relative flex items-center gap-2">
             <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-              {/* <EditIcon /> */}
-              {/*//? reserve button, hidden if reservation = capacity, navigates to reservation page with flight code */}
-              {flight["reserved"] == flight["capacity"]}
-              <Button
-                variant="solid"
-                radius="full"
-                color="success"
-                isDisabled={flight["reserved"] == flight["capacity"]}
-                // onClick={}
-              >
-                Reserve Seat
-              </Button>
+              {/*//? reserve button, show at capacity button if reservation = capacity, navigates to reservation page with flight code */}
+              {flight["reserved"] === flight["capacity"] ? (
+                <Button
+                  variant="solid"
+                  radius="full"
+                  // color="danger"
+                  style={{ backgroundColor: "#FA2C2C", color: "white" }}
+                >
+                  At Capacity
+                </Button>
+              ) : (
+                <Button
+                  variant="solid"
+                  radius="full"
+                  color="success"
+                  style={{ color: "white" }}
+                  onClick={() => navigateToFlightReservationpage(flight["id"])}
+                >
+                  Reserve Seat
+                </Button>
+              )}
             </span>
           </div>
         );
@@ -144,7 +105,9 @@ export default function SearchFlightsTable({ flightData }) {
     <Table
       aria-label="Table with custom cells"
       className="table"
-      style={{ marginBottom: "50px" }}
+      fullWidth={true}
+      //   removeWrapper={true}
+      //   style={{ marginBottom: "5px" }}
     >
       <TableHeader columns={columns}>
         {(column) => (
@@ -156,15 +119,18 @@ export default function SearchFlightsTable({ flightData }) {
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody items={flightData}>
-        {(item) => (
-          <TableRow key={item.id}>
-            {(columnKey) => {
-              //   console.log(columnKey);
-              return <TableCell>{renderCell(item, columnKey)}</TableCell>;
-            }}
-          </TableRow>
-        )}
+      <TableBody emptyContent={"No flights found"} items={flightData}>
+        {(item) => {
+          // console.log(item)
+          return (
+            <TableRow key={item._id}>
+              {(columnKey) => {
+                //   console.log(columnKey);
+                return <TableCell>{renderCell(item, columnKey)}</TableCell>;
+              }}
+            </TableRow>
+          );
+        }}
       </TableBody>
     </Table>
   );

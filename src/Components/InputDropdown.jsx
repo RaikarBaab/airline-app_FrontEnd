@@ -21,7 +21,7 @@ export default function InputDropdown({ label, values, selectedValueRef, setSele
       <div style={{ marginTop: "10px" }}>
         <Dropdown>
           <DropdownTrigger>
-            <Button variant="bordered" className="capitalize">
+            <Button variant="bordered" className="capitalize" style={{height: "35px", borderRadius: "8px"}}>
               {selectedValue}
             </Button>
           </DropdownTrigger>
@@ -33,8 +33,8 @@ export default function InputDropdown({ label, values, selectedValueRef, setSele
             selectedKeys={selectedValueRef}
             onSelectionChange={setSelectedValueRef}
           >
-            {values.map(({ label }) => (
-              <DropdownItem key={label}>{label}</DropdownItem>
+            {values.map((value) => (
+              <DropdownItem key={value}>{value}</DropdownItem>
             ))}
           </DropdownMenu>
         </Dropdown>

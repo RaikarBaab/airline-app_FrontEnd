@@ -10,7 +10,25 @@ import {
 import Logo from "../../src/Components/Logos/airline-log.svg";
 function Nav() {
   return (
-    <Navbar shouldHideOnScroll>
+    <Navbar
+      shouldHideOnScroll
+      classNames={{
+        item: [
+          "flex",
+          "relative",
+          "h-full",
+          "items-center",
+          "data-[active=true]:after:content-['']",
+          "data-[active=true]:after:absolute",
+          "data-[active=true]:after:bottom-0",
+          "data-[active=true]:after:left-0",
+          "data-[active=true]:after:right-0",
+          "data-[active=true]:after:h-[2px]",
+          "data-[active=true]:after:rounded-[2px]",
+          "data-[active=true]:after:bg-primary",
+        ],
+      }}
+    >
       <NavbarBrand>
         {/* <Logo /> */}
         <img src={Logo} className="img-fluid" style={{ width: "10%" }} />
@@ -18,17 +36,22 @@ function Nav() {
       </NavbarBrand>
       <NavbarContent className=" sm:flex gap-4" justify="center">
         <NavbarItem isActive>
-          <Link href="#" aria-current="page">
+          <Link href="/" >
             Home
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
-            About
+          <Link color="foreground" href="/search">
+            Search Flights
           </Link>
         </NavbarItem>
+        {/* <NavbarItem>
+          <Link color="foreground" href="/about">
+            About
+          </Link>
+        </NavbarItem> */}
       </NavbarContent>
-      <NavbarContent justify="end">
+      {/* <NavbarContent justify="end">
         <NavbarItem className=" lg:flex">
           <Link href="/login">
             <Button as={Link} color="primary" variant="flat">
@@ -43,7 +66,7 @@ function Nav() {
             </Button>
           </Link>
         </NavbarItem>
-      </NavbarContent>
+      </NavbarContent> */}
     </Navbar>
   );
 }

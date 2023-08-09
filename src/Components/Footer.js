@@ -46,35 +46,9 @@ export default function Footer() {
     <>
       <footer
         className="text-center text-white footer-container"
-        style={{ backgroundColor: "#c3c3c4", width: "100%", color: "black" }}
+        style={{ backgroundColor: "#c3c3c4", width: "100%", color: "black", marginTop: "15px" }}
       >
-        <div className="container grid" style={{ display: "grid" }}>
-          {/* <section className=""> */}
-          {/* <div
-              style={{
-                textDecoration: "none",
-                display: "flex",
-                justifyContent: "center",
-              }}
-              className="row text-center d-flex justify-content-center pt-5"
-            >
-              <div className="col-md-2 footer-content">
-                <h6 className="text-uppercase font-weight-bold">
-                  <a href="#!">About us</a>
-                </h6>
-              </div>
-              <div className="col-md-2 footer-content">
-                <h6 className="text-uppercase font-weight-bold">
-                  <a href="#!">Help</a>
-                </h6>
-              </div>
-              <div className="col-md-2 footer-content">
-                <h6 className="text-uppercase font-weight-bold">
-                  <a href="/contact-us">Contact Us</a>
-                </h6>
-              </div>
-            </div> */}
-          {/* </section> */}
+        {/* <div className="container grid" style={{ display: "grid" }}>
           <hr
             style={{
               margin: "0.7rem",
@@ -94,32 +68,7 @@ export default function Footer() {
               </div>
             </div>
           </section>
-          {/* Section: Text */}
-          {/* Section: Social */}
-          <section className="text-center mb-4">
-            <a href="" className="text-white me-4">
-              <i className="fab fa-facebook-f" />
-            </a>
-            <a href="" className="text-white me-4">
-              <i className="fab fa-twitter" />
-            </a>
-            <a href="" className="text-white me-4">
-              <i className="fab fa-google" />
-            </a>
-            <a href="" className="text-white me-4">
-              <i className="fab fa-instagram" />
-            </a>
-            <a href="" className="text-white me-4">
-              <i className="fab fa-linkedin" />
-            </a>
-            <a href="" className="text-white me-4">
-              <i className="fab fa-github" />
-            </a>
-          </section>
-          {/* Section: Social */}
-        </div>
-        {/* Grid container */}
-        {/* Copyright */}
+        </div> */}
         <div
           className="text-center p-3"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
